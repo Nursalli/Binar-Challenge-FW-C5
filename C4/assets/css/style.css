@@ -1,0 +1,29 @@
+.background {
+    background-color: #9C835F;
+}
+
+.back{
+    color: #724C21;
+}
+
+.icon{
+    width: 40%;
+    height: 40%;
+}
+
+.pilihanPlayer:hover {
+    opacity: 0.5;
+    cursor: pointer
+}
+
+#hasilPermainan{
+    display: none;
+}
+
+.pilihan {
+    background-color: #C4C4C4;
+}
+
+.hasil{
+    transform: rotate(-20deg);
+}

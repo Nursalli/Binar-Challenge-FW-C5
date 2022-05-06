@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="bootstrap5/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"> -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="bootstrap5/js/bootstrap.bundle.js"></script>
+</head>
+<body>
+    <div class="container rounded my-4 pb-4 background">
+        <div class="container p-3 my-3">
+            <div class="row">
+                <div class="col-12 d-flex align-items-center">
+                    <a href="index.html" class="btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-chevron-left back" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+                        </svg>
+                    </a>
+                    <img src="assets/image/logo.png" alt="Logo Icon" class="img-fluid mx-3">
+                    <h3 class="fw-bold text-warning text-uppercase mx-3 d-inline">rock paper scissors</h3>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-4 col-sm-4 col-md-4 col-lg-3">
+                    <h3 class="fw-bold text-uppercase text-center">player 1</h3>
+                    <div class="my-5 p-2 rounded pilihanPlayer" id="batu">
+                        <img src="assets/image/batu.png" alt="Rock Player" class="img-fluid d-block mx-auto icon">
+                    </div>
+                    <div class="my-5 p-2 rounded pilihanPlayer" id="kertas">
+                        <img src="assets/image/kertas.png" alt="Paper Player" class="img-fluid d-block mx-auto icon">
+                    </div>
+                    <div class="my-5 p-2 rounded pilihanPlayer" id="gunting">
+                        <img src="assets/image/gunting.png" alt="Scissors Player" class="img-fluid d-block mx-auto icon">
+                    </div>
+                    <div class="text-center">
+                        <button type="button" class="btn btn-primary text-uppercase">
+                            score <span class="badge bg-secondary" id="scorePlayer">0</span>
+                        </button>
+                    </div>
+                </div>
+    
+                <div class="col-4 col-sm-3 col-md-3 col-lg-2">
+                    <h1 class="fw-bold text-danger text-center" id="vs">VS</h1>
+                    <div class="fw-bold text-white text-center bg-success bg-opacity-50 rounded" id="hasilPermainan">
+                        <h1>Player 1/COM</h1>
+                        <h1>Win/Draw</h1>
+                    </div>
+                </div>
+    
+                <div class="col-4 col-sm-4 col-md-4 col-lg-3">
+                    <h3 class="fw-bold text-uppercase text-center">com</h3>
+                    <div class="my-5 p-2 rounded pilihanComputer">
+                        <img src="assets/image/batu.png" alt="Rock Com" class="img-fluid d-block mx-auto icon">
+                    </div>
+                    <div class="my-5 p-2 rounded pilihanComputer">
+                        <img src="assets/image/kertas.png" alt="Paper Com" class="img-fluid d-block mx-auto icon">
+                    </div>
+                    <div class="my-5 p-2 rounded pilihanComputer">
+                        <img src="assets/image/gunting.png" alt="Scissors Com" class="img-fluid d-block mx-auto icon">
+                    </div>
+                    <div class="text-center">
+                        <button type="button" class="btn btn-warning text-uppercase">
+                            score <span class="badge bg-secondary" id="scoreCom">0</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-4 col-sm-4 col-md-3 col-lg-2" id="ulang">
+                    <a href="#" class="btn"><img src="assets/image/refresh.png" alt="refresh" class="img-fluid icon"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
