@@ -20,7 +20,22 @@ app.use(morgan('dev'));
 
 //Routing
 app.get('/', (req, res) => {
-    res.render('index');
+    res.status(200).render('index');
+});
+
+//Routing C3 Index
+app.get('/c3', (req, res) => {
+    res.status(200).render('c3/index');
+});
+
+//Routing C4 Index
+app.get('/c4', (req, res) => {
+    res.status(200).render('c4/index');
+});
+
+//Routing C4 Game
+app.get('/c4/game', (req, res) => {
+    res.status(200).render('c4/game');
 });
 
 //Start Server
