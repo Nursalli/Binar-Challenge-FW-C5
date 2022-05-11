@@ -1,6 +1,7 @@
+//Import Module
 //Third-Party Module
-import fs from "fs";
-import bcrypt from "bcryptjs"
+const fs = require('fs');
+const bcrypt = require('bcryptjs');
 
 //Create Folder data
 const dirpath = './data';
@@ -15,14 +16,14 @@ if(!fs.existsSync(dirfile)){
 }
 
 //Get Users
-const listUser = () => {
+const listUsers = () => {
     const file = fs.readFileSync('data/user.json', 'utf8');
     return JSON.parse(file);
 }
 
 //Get Find User
 const findUser = (id) => {
-    const dataUsers = listUser();
+    const dataUsers = listUsers();
     return dataUsers.find(data => data.id === parseInt(id));
 }
 
@@ -33,20 +34,18 @@ const saveUser = (data) => {
 
 //Check Duplicate
 const duplicate = (email) => {
-    const dataUsers = listUser();
+    const dataUsers = listUsers();
     return dataUsers.find(data => data.email === email);
 }
 
 //Add User
 const addUser = (data) => {
-    const dataUsers = listUser();
+    const dataUsers = listUsers();
     
     const id = (dataUsers.length === 0) ? 1 : dataUsers[dataUsers.length - 1].id + 1;
     let { name, email, password } = data;
 
     password = bcrypt.hashSync(password, 10);
-
-    // const compare = bcrypt.compareSync("12345", password);
 
     const post = {
         id,
@@ -60,4 +59,4 @@ const addUser = (data) => {
     saveUser(dataUsers);
 }
 
-export { listUser, findUser, duplicate, addUser };
+module.exports = { listUsers, findUser, duplicate, addUser };

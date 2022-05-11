@@ -1,12 +1,12 @@
 //Import Module
-
 //Local Module
-import { listUser, findUser, duplicate, addUser } from './utils/management-user.mjs';
+const { listUsers, findUser, duplicate, addUser } = require('./utils/management-user');
+const { router } = require('./router/router');
 
 //Third-Party Module
-import express from "express";
-import morgan from "morgan";
-import { body, validationResult } from "express-validator";
+const express =  require('express');
+const morgan = require('morgan');
+const { body, validationResult } = require('express-validator');
 
 //Init Express and assignment Const Port
 const app = express();
@@ -20,14 +20,15 @@ app.use(express.static('public'));
 app.use(express.json());
 app.use(express.urlencoded( { extended: true } ));
 
+//Router Level Middleware (For Login)
+app.use(router);
+
 //Third-Party Middleware (For logger and Layouts)
 app.use(morgan('dev'));
 
-//Router
-
 //Routing Get Users
 app.get('/api/getUsers', (req, res) => {
-    const users = listUser();
+    const users = listUsers();
     res.status(200).json(users);
 });
 
@@ -91,6 +92,13 @@ app.get('/c4', (req, res) => {
 app.get('/c4/game', (req, res) => {
     res.render('c4/game', {
         title: "Rock Paper Scissors",
+    });
+});
+
+//Middleware Error (404 Handler)
+app.use((req, res, next) => {
+    res.status(404).json({
+        errors: "API Not Found"
     });
 });
 
