@@ -18,7 +18,6 @@ router.use((req, res, next) => {
 router.post('/api/login', 
     [
         body('email').isEmail(),
-        body('email').notEmpty(),
         body('password').notEmpty()
     ],
     (req, res) => {

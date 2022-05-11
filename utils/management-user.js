@@ -59,4 +59,41 @@ const addUser = (data) => {
     saveUser(dataUsers);
 }
 
-module.exports = { listUsers, findUser, duplicate, addUser };
+const updateUser = (data, id) => {
+    const dataUsers = listUsers();
+
+    let findUser = dataUsers.find(user => user.id === parseInt(id));
+
+    let newData = {};
+    
+    if(data.password.length > 0){
+        newData = {
+            name: data.name,
+            email: data.email,
+            password: bcrypt.hashSync(data.password, 10)
+        }
+    }else{
+        newData = {
+            name: data.name,
+            email: data.email
+        }
+    }
+
+    findUser = { ...findUser, ...newData }
+
+    const postNewData = dataUsers.map(user => user.id === findUser.id ? findUser : user);
+
+    console.log(postNewData);
+
+    saveUser(postNewData);
+}
+
+const deleteUser = (id) => {
+    const dataUsers = listUsers();
+
+    const postAfterDeleteData = dataUsers.filter(user => user.id !== parseInt(id));
+
+    saveUser(postAfterDeleteData);
+}
+
+module.exports = { listUsers, findUser, duplicate, addUser, updateUser, deleteUser };

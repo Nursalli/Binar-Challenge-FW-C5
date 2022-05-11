@@ -1,6 +1,6 @@
 //Import Module
 //Local Module
-const { listUsers, findUser, duplicate, addUser } = require('./utils/management-user');
+const { listUsers, findUser, duplicate, addUser, updateUser, deleteUser } = require('./utils/management-user');
 const { router } = require('./router/router');
 
 //Third-Party Module
@@ -57,6 +57,7 @@ app.post('/api/addUser',
             }
         }),
         body('email').isEmail(),
+        body('name').notEmpty(),
         body('password').isLength({ min: 5})
     ], 
     (req, res) => {
@@ -70,6 +71,58 @@ app.post('/api/addUser',
         addUser(req.body);
         res.status(200).json({ 
             success: 'Data User Saved'
+        });
+    }
+});
+
+//Routing Update User
+app.put('/api/updateUser/:id', 
+    [
+        body('email').custom((data, { req }) => {
+            const user = findUser(req.params.id);
+            const check = duplicate(data);
+            if(user.email !== req.body.email && check){
+                throw new Error('Email Already Exists');
+            }else{
+                return true;
+            }
+        }),
+        body('email').isEmail(),
+        body('name').notEmpty(),
+        body('password').custom(data => {
+            if(data.length < 5 && data.length !== 0){
+                throw new Error('Invalid value');
+            }else{
+                return true;
+            }
+        })
+    ], 
+    (req, res) => {
+    const errors = validationResult(req);
+
+    if(!errors.isEmpty()){
+        return res.status(400).json({ 
+            errors: errors.array() 
+        });
+    }else{
+        updateUser(req.body, req.params.id);
+        res.status(200).json({ 
+            success: 'Data User Updated'
+        });
+    }
+});
+
+app.delete('/api/deleteUser/:id', (req,res) => {
+    const user = findUser(req.params.id);
+    
+    if(user){
+        deleteUser(req.params.id);
+        res.status(200).json({
+            success: 'Data User Deleted'
+        });
+    }else{
+        res.status(400).json({ 
+            errors: 'User Not Found' 
         });
     }
 });

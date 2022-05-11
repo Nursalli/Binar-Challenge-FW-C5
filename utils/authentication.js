@@ -9,10 +9,15 @@ const authentication = (user) => {
     const dataUsers = listUsers();
 
     const existParam1 = dataUsers.find(data => data.email === user.email);
-    const existParam2 = bcrypt.compareSync(user.password, existParam1.password);
 
-    if(existParam1 && existParam2){
-        return true;
+    if(existParam1){
+        const existParam2 = bcrypt.compareSync(user.password, existParam1.password);
+
+        if(existParam2){
+            return true;
+        }else{
+            return false; 
+        }
     }else{
         return false;
     };
