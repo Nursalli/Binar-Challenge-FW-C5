@@ -1,6 +1,8 @@
 //Import Module
-//Third-Party Module
+//Core Module
 const fs = require('fs');
+
+//Third-Party Module
 const bcrypt = require('bcryptjs');
 
 //Create Folder data
@@ -24,7 +26,7 @@ const listUsers = () => {
 //Get Find User
 const findUser = (id) => {
     const dataUsers = listUsers();
-    return dataUsers.find(data => data.id === parseInt(id));
+    return dataUsers.find(user => user.id === parseInt(id));
 }
 
 //Save User
@@ -35,7 +37,7 @@ const saveUser = (data) => {
 //Check Duplicate
 const duplicate = (email) => {
     const dataUsers = listUsers();
-    return dataUsers.find(data => data.email === email);
+    return dataUsers.find(user => user.email === email);
 }
 
 //Add User
@@ -59,6 +61,7 @@ const addUser = (data) => {
     saveUser(dataUsers);
 }
 
+//Update User
 const updateUser = (data, id) => {
     const dataUsers = listUsers();
 
@@ -66,7 +69,7 @@ const updateUser = (data, id) => {
 
     let newData = {};
     
-    if(data.password.length > 0){
+    if(data.password.length !== 0){
         newData = {
             name: data.name,
             email: data.email,
@@ -83,11 +86,10 @@ const updateUser = (data, id) => {
 
     const postNewData = dataUsers.map(user => user.id === findUser.id ? findUser : user);
 
-    console.log(postNewData);
-
     saveUser(postNewData);
 }
 
+//Delete User
 const deleteUser = (id) => {
     const dataUsers = listUsers();
 

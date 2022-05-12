@@ -5,13 +5,13 @@ const bcrypt = require('bcryptjs');
 //Local Module
 const { listUsers } = require('./management-user');
 
-const authentication = (user) => {
+const authentication = (data) => {
     const dataUsers = listUsers();
 
-    const existParam1 = dataUsers.find(data => data.email === user.email);
+    const existParam1 = dataUsers.find(user => user.email === data.email);
 
     if(existParam1){
-        const existParam2 = bcrypt.compareSync(user.password, existParam1.password);
+        const existParam2 = bcrypt.compareSync(data.password, existParam1.password);
 
         if(existParam2){
             return true;
