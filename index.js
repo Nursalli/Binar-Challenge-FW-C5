@@ -1,6 +1,6 @@
 //Import Module
-//Local Module
-const { listUsers, findUser, duplicate, addUser, updateUser, deleteUser } = require('./utils/management-user');
+//Local Module and Publish in my account npm
+const { listUsers, findUser, duplicate, addUser, updateUser, deleteUser } = require('mnursalli-first-module');
 
 //Third-Party Module
 const express =  require('express');

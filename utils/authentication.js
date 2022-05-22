@@ -2,8 +2,8 @@
 //Third-Party Module
 const bcrypt = require('bcryptjs');
 
-//Local Module
-const { listUsers } = require('./management-user');
+//Local Module and Publish in my account npm
+const { listUsers } = require('mnursalli-first-module');
 
 const authentication = (data) => {
     const dataUsers = listUsers();
