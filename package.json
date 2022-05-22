@@ -1,7 +1,7 @@
 {
   "name": "binar-challenge-fw-c5",
   "version": "1.0.0",
-  "description": "",
+  "description": "Challenge FW C5",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -12,7 +12,7 @@
     "url": "git+https://github.com/Nursalli/Binar-Challenge-FW-C5.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Muhammad Nursalli",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Nursalli/Binar-Challenge-FW-C5/issues"

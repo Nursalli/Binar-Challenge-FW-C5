@@ -65,7 +65,7 @@ const addUser = (data) => {
 const updateUser = (data, id) => {
     const dataUsers = listUsers();
 
-    let findUser = dataUsers.find(user => user.id === parseInt(id));
+    let searchUser = findUser(id);
 
     let newData = {};
     
@@ -82,9 +82,9 @@ const updateUser = (data, id) => {
         }
     }
 
-    findUser = { ...findUser, ...newData }
+    searchUser = { ...searchUser, ...newData }
 
-    const postNewData = dataUsers.map(user => user.id === findUser.id ? findUser : user);
+    const postNewData = dataUsers.map(user => user.id === searchUser.id ? searchUser : user);
 
     saveUser(postNewData);
 }

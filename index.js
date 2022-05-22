@@ -1,7 +1,6 @@
 //Import Module
 //Local Module
 const { listUsers, findUser, duplicate, addUser, updateUser, deleteUser } = require('./utils/management-user');
-const { router } = require('./router/router');
 
 //Third-Party Module
 const express =  require('express');
@@ -19,12 +18,13 @@ app.set('view engine', 'ejs');
 //Built-in Middleware (For Read Public Directory, JSON File and Parsing x-www-urlencoded)
 app.use(express.static('public'));
 app.use(express.json());
-app.use(express.urlencoded( { extended: true } ));
+app.use(express.urlencoded( { extended: false } ));
 
 //Third-Party Middleware (For logger and Layouts)
 app.use(morgan('dev'));
 
 //Router Level Middleware (For Login)
+const { router } = require('./router/router');
 app.use(router);
 
 //Routing Get, Get Users
@@ -70,7 +70,7 @@ app.post('/api/addUser',
         });
     }else{
         addUser(req.body);
-        res.status(200).json({ 
+        res.status(201).json({ 
             success: 'Data User Saved'
         });
     }
@@ -150,10 +150,10 @@ app.get('/c4/game', (req, res) => {
     });
 });
 
-//Contoh Router yang Menyebabkan Internal Server Error
-// app.get('/salah', (req, res) => {
-//     salah
-// });
+//Example Router for Internal Server Error
+app.get('/salah', (req, res) => {
+    salah
+});
 
 //Error Handling Middleware (Internal Server Error)
 app.use((err, req, res, next) => {
