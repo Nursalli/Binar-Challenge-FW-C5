@@ -1,8 +1,9 @@
 {
 	"info": {
-		"_postman_id": "ac32f644-041e-4764-aa31-ace1347d8635",
+		"_postman_id": "cb34bfa0-7d96-4c97-9a66-79e8c57ff9b4",
 		"name": "Binar Challenge Chapter 5",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5473913"
 	},
 	"item": [
 		{
@@ -37,7 +38,7 @@
 					"query": [
 						{
 							"key": "Content-Type",
-							"value": null,
+							"value": "",
 							"disabled": true
 						}
 					]
@@ -78,7 +79,7 @@
 					"query": [
 						{
 							"key": "Content-Type",
-							"value": null,
+							"value": "",
 							"disabled": true
 						}
 					]
@@ -135,7 +136,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"email\": \"admin@gmail.com\",\r\n    \"password\": \"admin123\"\r\n}",
+					"raw": "{\r\n    \"email\": \"benzema@realmadrid.com\",\r\n    \"password\": \"wakhaji123\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -164,7 +165,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"mosalah\",\r\n    \"email\": \"mosalah@liverpool.com\",\r\n    \"password\": \"mosalah123\"\r\n}",
+					"raw": "{\r\n    \"name\": \"benzema\",\r\n    \"email\": \"benzema@realmadrid.com\",\r\n    \"password\": \"wakhaji123\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -172,7 +173,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:3000/api/updateUser/3",
+					"raw": "http://localhost:3000/api/updateUser/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -181,7 +182,7 @@
 					"path": [
 						"api",
 						"updateUser",
-						"3"
+						"1"
 					]
 				}
 			},
